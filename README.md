@@ -33,12 +33,13 @@ O sistema online oferece diversas funcionalidades, tanto para **vendedores** qua
   Classificação dos melhores vendedores com base nas vendas realizadas, criando um ambiente competitivo que estimula o crescimento dos empreendedores.
 - **Categorias de Produtos**  
   Organização dos produtos em categorias específicas, facilitando a busca e navegação dentro da plataforma.
-
+  
 ## Desenvolvedores
 
 - [Catarina Silva](mailto:catarinasouzasilvao@gmail.com)
 - [Dylan Borges](mailto:dylanborges06@gmail.com)
-- ![Izabelle Alves](https://avatars.githubusercontent.com/u/166458348?s=400&u=fe7c44163446d677eac374237ddb58ac4588c0a8&v=4) [Izabelle Alves](mailto:izabelle.alvesbl@gmail.com)
+- [Izabelle Alves](mailto:izabelle.alvesbl@gmail.com)
 - [Keila Isabelle](mailto:keiila_isabelle@outlook.com)
 - [Laura Esterfani](mailto:lauraestefa4@gmail.com)
 - [Rubens Lira](mailto:rubenslira371@gmail.com)
+
