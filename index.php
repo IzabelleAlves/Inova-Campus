@@ -4,7 +4,7 @@ $result = ['view' => ''];
 
 switch($action) { 
     case 'home':
-        $result = ['view' => 'src/views/home.php'];
+        $result = ['view' => './src/views/home.php'];
         break;
     case 'product-create':
         $result = ['view' => './src/views/product/create.php'];
@@ -13,7 +13,7 @@ switch($action) {
         $result = ['view' => './src/views/user/create.php'];
         break;
     default:
-        $result = ['view' => 'src/views/home.php'];
+        $result = ['view' => './src/views/home.php'];
         break;
 }
 

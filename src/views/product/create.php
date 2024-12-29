@@ -1,32 +1,37 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8"/>
-        <link rel="stylesheet" href="createProd.css"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Cadastro de Produto</title>
-    </head>
-    <body>
-        <header>
-            <div class="right">
-                <img src="images/icons/usuario.png"/>
-            </div>
-            <h1>OLÁ, USUÁRIO</h1>
-            <div class="left">
-                <button class="opcao-botao">☰</button>
-            </div>
-        </header>
-        <p>Cadastro de Produtos</P>
-            <div class="quadrado-container">
-        <h5>Nome do Produto:</h5>
-            <input type="text"  placeholder="Digite aqui..."/>
-            <h5>Quantidade:</h5>
-            <input type="text" placeholder="Digite aqui..."/>
-            <h5>Tipo:</h5>
-            <input type="text" placeholder="Digite aqui..."/>
-            <h5>Upload de imagens:</h5>
-            <input type="file" placeholder="Faça o upload da sua imagem ..."/>
-               <button class="botaocadastrar">CADASTRAR</button>
-            </div>
-    </body>
-</html>
+<div class="container">
+    <h2>Cadastro de Produtos</h2>
+    <form action="index.php" method="post" id="form">
+        <label>
+            Nome do Produto:
+            <input type="text" id="nome" class="required" name="nome" placeholder="Digite o nome..." required/>
+            <span class="span-required">Digite o nome ao produto</span>
+        </label>
+        <label>
+            Quantidade:
+            <input type="number" id="quantidade" class="required" name="quantidade"placeholder="Digite a quantidade..." required/>
+            <span class="span-required">Digite a quantidade ao produto</span>
+        </label>
+        <label for="categoria">
+            Tipo:
+            <input type="text" id="categoria" class="required" list="sugestoes" placeholder="Digite a categoria..." required/>
+            <span class="span-required">Digite ou selecione um categoria</span>
+            <datalist id="sugestoes">
+                <option value="Lanche"></option>
+                <option value="Almoço"></option>
+                <option value="Artesanato"></option>
+                <option value="Plantinhas"></option>
+            </datalist>
+        </label>
+        <label id="drop-label" for="file-input">
+            <p id="drop-text">Arraste uma imagem aqui ou clique para selecionar</p>
+            <input type="file" name="file-input" id="file-input" accept="image/*" hidden>
+            <img src="" alt="Pré visualização da imagem" id="preview" style="display: none">
+            <button type="button" id="remove-btn" style="display: none">Remover imagem</button>
+            <span class="span-required">Escolha uma imagem</span>
+        </label>
+        <input type="submit" class="enviar" value="Cadastrar">
+    </form>
+</div>
+<script>
+    <?php include './assets/js/products/create.js' ?>
+</script>

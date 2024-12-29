@@ -1,0 +1,146 @@
+:root {
+    --color-dark-green: #187501;
+    --color-green: #2a980f;
+    --color-light-green: #1875014d;
+    --color-red: #ff4d4d;
+    --color-dark-red: #cc0000;
+    --color-blue-upload: #007bff;
+    --color-gray: #f0f8ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: max(320px, 100vw);
+    min-height: 100dvh;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 8dvh;
+    padding: 0 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-light-green);
+}
+
+header h1 {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: clamp(1.6rem, 8vw, 2rem);
+}
+
+h2 {
+    margin: 2rem;
+    font-size: clamp(1.2rem, 6vw, 1.5rem);
+}
+
+h1, h2 {
+    color: var(--color-dark-green);
+}
+
+main {
+    flex: 1;
+}
+
+form {
+    width: clamp(300px, 90%, 460px);
+    height: clamp(400px, 80%, 600px);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+form .tipo-selecao {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+form input {
+    height: 2rem;
+    border: 2px var(--color-dark-green) solid;
+    outline: none;
+    padding-left: .5rem;
+    border-radius: .3rem;
+}
+
+.radio-style {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-green);
+    border-radius: 50%;
+    margin-right: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.tipo-selecao:hover .radio-style {
+    background-color: var(--color-light-green);
+}
+
+input[type="radio"]:checked + .radio-style {
+    background-color: var(--color-green);
+    border-color: var(--color-dark-green);
+}
+  
+input[type="radio"] + .radio-style::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+fieldset {
+    display: flex;
+    justify-content: space-around;
+    border: none;
+}
+
+.enviar {
+    width: 50%;
+    height: 1.8rem;
+    margin: 0 auto;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1.8rem;
+    cursor: pointer;
+    color: white;
+    background-color: var(--color-green);
+}
+
+.enviar:hover {
+    background-color: var(--color-dark-green);
+}
+
+footer {
+    height: 4dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-light-green);
+}
+
+footer p {
+    text-align: center;
+    color: var(--color-dark-green);
+}

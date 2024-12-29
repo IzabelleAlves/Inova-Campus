@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/products.css">
+    <link rel="stylesheet" href="./assets/styles/form.css">
     <title>Inova Campus</title>
 </head>
 <body>
@@ -20,5 +23,6 @@
     <main>
         <?php include $view?>
     </main>
+    <footer><p>&copy;Todos os Direitos Reservados</p></footer>
 </body>
 </html>

@@ -1,0 +1,89 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: .3rem;
+}
+
+.menu div {
+    width: 2rem;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--color-dark-green);
+}
+
+.img p  {
+    margin: .5rem;
+    opacity: 0.5;
+}
+
+.enviar {
+    width: 50%;
+    height: 1.8rem;
+    margin: 0 auto;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1.8rem;
+    cursor: pointer;
+    color: white;
+    background-color: var(--color-green);
+}
+
+.enviar:hover {
+    background-color: var(--color-dark-green);
+}
+
+#drop-label {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#drop-label.upload {
+    border-color: var(--color-dark-green);
+}
+
+#drop-label.null {
+    border-color: var(--color-dark-red);
+}
+
+#drop-label.dragover {
+    background-color: var(--color-gray);
+    border-color: var(--color-blue-upload);
+}
+
+#remove-btn {
+    margin-top: 1rem;
+    background-color: var(--color-red);
+    color: #fff;
+    border: none;
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+#remove-btn:hover {
+    background-color: var(--color-dark-red);
+}
+
+#preview {
+    width: 100%;
+}
+
+.span-required {
+    display: none;
+    font-size: 0.75rem;
+    color: var(--color-red);
+}

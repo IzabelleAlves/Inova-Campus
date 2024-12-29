@@ -1,0 +1,51 @@
+Produtos
+
+Create:
+[x] HTML
+[x] CSS
+[x] JS
+[] PHP
+
+Delete:
+[] HTML
+[] CSS
+[] JS
+[] PHP
+
+Read:
+[] HTML
+[] CSS
+[] JS
+[] PHP
+
+Update:
+[] HTML
+[] CSS
+[] JS
+[] PHP
+
+Usuários
+
+Create:
+[x] HTML
+[x] CSS
+[] JS
+[] PHP
+
+Delete:
+[] HTML
+[] CSS
+[] JS
+[] PHP
+
+Read:
+[] HTML
+[] CSS
+[] JS
+[] PHP
+
+Update:
+[] HTML
+[] CSS
+[] JS
+[] PHP
