@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Cadastre-se</h2>
-    <form class="quadrado-container">
+    <form id="form" action="" method="post" >
         <label for="email">
             Email:
             <input
@@ -72,7 +72,7 @@
         <fieldset class="selecao">
             <legend>Função:</legend>
             <label for="cliente" class="tipo-selecao">
-                <input type="radio" name="tipo" id="cliente" value="cliente" hidden required/>
+                <input type="radio" name="tipo" id="cliente" value="cliente" checked hidden required/>
                 <span class="radio-style"></span>
                 Cliente
             </label>
@@ -87,5 +87,5 @@
 </div>
 
 <script>
-    <?php include "./src/assets/js/createUser.js" ?>
+    <?php include "./assets/js/createUser.js" ?>
 </script>
