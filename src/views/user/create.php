@@ -87,5 +87,5 @@
 </div>
 
 <script>
-    <?php include "./assets/js/createUser.js" ?>
+    <?php include "./assets/js/user/create.js" ?>
 </script>
