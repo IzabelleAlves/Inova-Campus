@@ -11,7 +11,24 @@ const span = document.querySelectorAll(".span-required")
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 const nomeRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ'-]{2,30}(\s+[A-Za-zÀ-ÖØ-öø-ÿ'-]{2,30})+$/
 
-telefone.addEventListener('input', () => {
+emailInput.addEventListener("input", emailValidate)
+nomeInput.addEventListener("input", nameValidate)
+senhaInput.addEventListener("input", passwordValidate)
+confirmeInput.addEventListener("input", comparePassword)
+telefoneInput.addEventListener("input", telefoneValidate)
+
+form.addEventListener("submit", (e) => {
+    let valido = true
+    e.preventDefault()
+    if (!emailValidate()) valido = false
+    if (!nameValidate()) valido = false
+    if (!passwordValidate()) valido = false
+    if (!comparePassword()) valido = false
+
+    if (valido) form.submit()
+})
+
+telefoneInput.addEventListener('input', () => {
     let value = telefone.value.replace(/\D/g, '') // Remove tudo que não for número
 
     if (value.length > 11) {
@@ -28,23 +45,6 @@ telefone.addEventListener('input', () => {
     } else {
         telefone.value = value
     }
-})
-
-emailInput.addEventListener("input", emailValidate)
-nomeInput.addEventListener("input", nameValidate)
-senhaInput.addEventListener("input", passwordValidate)
-confirmeInput.addEventListener("input", comparePassword)
-telefoneInput.addEventListener("input", telefoneValidate)
-
-form.addEventListener("submit", (e) => {
-    let valido = true
-    e.preventDefault()
-    if (!emailValidate()) valido = false
-    if (!nameValidate()) valido = false
-    if (!passwordValidate()) valido = false
-    if (!comparePassword()) valido = false
-
-    if (valido) form.submit()
 })
 
 function setError(index) {
