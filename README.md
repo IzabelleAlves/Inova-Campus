@@ -8,7 +8,6 @@ O **Inova-Campus** é um projeto desenvolvido para incentivar o empreendedorismo
 - **TypeScript**
 - **PHP**
 - **React**
-- **Laravel**
 - **MySQL**
 
 ## Descrição
