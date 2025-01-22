@@ -16,8 +16,8 @@
             <ul class="nav-list" >
                 <li><a href="index.php?action=product-create">Produtos</a></li>
                 <li><a href="index.php?action=user-create">Usuário</a></li>
-                <li><a href="index.php?action="></a></li>
-                <li><a href="index.php?action="></a></li>
+                <!-- <li><a href="index.php?action="></a></li>
+                <li><a href="index.php?action="></a></li> -->
             </ul>
         </nav>
     </header>
