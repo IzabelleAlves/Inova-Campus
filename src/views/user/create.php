@@ -1,4 +1,7 @@
 <div class="container">
+    <?php 
+        $nome = $_POST['telefone'] ?? "";
+    ?>
     <h2>Cadastre-se</h2>
     <form id="form" action="" method="post" >
         <label for="email">
