@@ -2,7 +2,7 @@
 
 require_once "./src/model/User.php";
 
-class Controller {
+class ControllerUser {
     private $db;
     private User $user;
 

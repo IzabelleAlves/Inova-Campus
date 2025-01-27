@@ -52,7 +52,7 @@ class User {
         }
     }
 
-    public function login() {
+    public function login(): bool {
         $tabela = $this->getTabela();
         $user = $this->check();
 
@@ -69,6 +69,14 @@ class User {
             return true;
         }
         return false;
+    }
+
+    public function edit() {
+        $tabela = $this->getTabela();
+        // $query = "UPDATE {$tabela} 
+        //     SET ALN_NOME = :nome, ALN_CPF = :cpf, ALN_EMAIL = :email, ALN_DATA_NASCIMENTO = :nascimento 
+        //     WHERE ALN_MATRICULA = :matricula";
+
     }
 
     public function getConn(): mixed {

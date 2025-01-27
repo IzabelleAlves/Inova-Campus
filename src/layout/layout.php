@@ -19,6 +19,7 @@
                     <li><a href="index.php?action=login">Login</a></li>
                 <?php else: ?>
                     <li><a href="index.php?action=product-create">Produtos</a></li>
+                    <li><a href="index.php?action=user-edit">Editar</a></li>
                     <li><a href="index.php?action=logout">Sair</a></li>
                 <?php endif ?>
             </ul>
