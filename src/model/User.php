@@ -10,19 +10,19 @@ class User {
     private string $email;
     private string $senha;
     private string $telefone;
-    private int $vendedor;
+    private int $tipo;
 
     public function __construct($db) {
         $this->setConn($db);
     }
 
-    public function check() {
+    public function check(): array | false {
         $tabela = $this->getTabela();
         $query = "SELECT * FROM {$tabela} WHERE USE_EMAIL = :email LIMIT 1";
         $stmt = $this->conn->prepare($query);
         $email = $this->getEmail();
-        $stmt->execute([':email' => $email]);
-        return $stmt->fetch(PDO::FETCH_ASSOC) ? true : false;
+        $stmt->execute(['email' => $email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC) ?: false;
     }
 
     public function create(): bool {
@@ -36,20 +36,39 @@ class User {
             VALUES (:nome, :email, :senha, :telefone, :vendedor)";
         $stmt = $this->conn->prepare($query);
 
-        $nome = $this->getNome();
-        $email = $this->getEmail();
-        $senha = $this->getSenha();
-        $telefone = $this->getTelefone();
-        $vendedor = $this->getVendedor();
+        $dados = [
+            'nome' => $this->getNome(),
+            'email' => $this->getEmail(),
+            'senha' => $this->getSenha(),
+            'telefone' => $this->getTelefone(),
+            'vendedor' => $this->getTipo()
+        ];
 
-        $success = $stmt->execute([
-            'nome' => $nome,
-            'email' => $email,
-            'senha' => $senha,
-            'telefone' => $telefone,
-            'vendedor' => $vendedor
-        ]);
-        return $success;
+        try {
+            return $stmt->execute($dados);
+        } catch (PDOException $e) {
+            error_log('Erro ao criar registro: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function login() {
+        $tabela = $this->getTabela();
+        $user = $this->check();
+
+        if (!$user) {
+            return false;
+        }
+
+        if ($this->getSenha() === $user['USE_SENHA']) {
+            $_SESSION['id'] = $user['USE_ID'];
+            $_SESSION['email'] = $user['USE_EMAIL'];
+            $_SESSION['nome'] = $user['USE_NOME'];
+            $_SESSION['telefone'] = $user['USE_TELEFONE'];
+            $_SESSION['tipo'] = $user['USE_VENDEDOR'];
+            return true;
+        }
+        return false;
     }
 
     public function getConn(): mixed {
@@ -115,12 +134,12 @@ class User {
         return $this;
     }
 
-    public function getVendedor(): int {
-        return $this->vendedor;
+    public function getTipo(): int {
+        return $this->tipo;
     }
 
-    public function setVendedor(int $vendedor): self {
-        $this->vendedor = $vendedor;
+    public function setTipo(int $tipo): self {
+        $this->tipo = $tipo;
         return $this;
     }
 }

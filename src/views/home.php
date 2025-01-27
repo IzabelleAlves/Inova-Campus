@@ -1,3 +1,3 @@
 <div class="container">
-    <h2>Olá Rubens</h2>
+    <h2><?= "Olá " . $_SESSION['nome'] ?></h2>
 </div>

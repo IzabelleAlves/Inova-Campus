@@ -1,9 +1,6 @@
 <div class="container">
-    <?php 
-        $nome = $_POST['telefone'] ?? "";
-    ?>
     <h2>Cadastre-se</h2>
-    <form id="form" action="" method="post" >
+    <form id="form" action="index.php?action=user-create" method="post" >
         <label for="email">
             Email:
             <input
@@ -75,20 +72,18 @@
         <fieldset class="selecao">
             <legend>Função:</legend>
             <label for="cliente" class="tipo-selecao">
-                <input type="radio" name="tipo" id="cliente" value="cliente" checked hidden required/>
+                <input type="radio" name="tipo" id="cliente" value="0" checked hidden required/>
                 <span class="radio-style"></span>
                 Cliente
             </label>
             <label for="vendedor" class="tipo-selecao">
-                <input type="radio" name="tipo" id="vendedor" value="vendedor" hidden required/>
+                <input type="radio" name="tipo" id="vendedor" value="1" hidden required/>
                 <span class="radio-style"></span>
                 Vendedor
             </label>
         </fieldset>
         <input type="submit" class="enviar" value="Cadastrar"/>
     </form>
+    <script defer src="./assets/js/user/create.js"></script>
 </div>
 
-<script>
-    <?php include "./assets/js/user/create.js" ?>
-</script>

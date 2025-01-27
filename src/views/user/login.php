@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Login</h2>
-    <form action="" method="post">
+    <form action="index.php?action=login" method="post">
         E-mail
         <label for="email">
             <input 

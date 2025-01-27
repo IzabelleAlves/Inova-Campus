@@ -1,4 +1,9 @@
 <?php
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 require_once "./src/model/Controller.php";
 
 $Controller = new Controller();
@@ -8,12 +13,13 @@ $result = ['view' => ''];
 $result = match ($action) {
     'home' => ['view' => './src/views/home.php'],
     'product-create' => ['view' => './src/views/product/create.php'],
-    'login' => $Controller->create(),
-    'user-create' => ['view' => './src/views/user/create.php'],
+    'login' => $Controller->login(),
+    'user-create' => $Controller->create(),
+    'logout' => ['view' => './src/config/logout.php'],
     default => ['view' => './src/views/home.php'],
 };
 
-$view = $result['view'];
+$view = (empty($_SESSION["id"])) ? './src/views/user/login.php' :  $result['view'];
 
 require './src/layout/layout.php';
 

@@ -14,16 +14,38 @@
             <a href="/" class="logo">Inova Campus</a>
             <button class="hamburger"></button>
             <ul class="nav-list" >
-                <li><a href="index.php?action=product-create">Produtos</a></li>
-                <li><a href="index.php?action=user-create">Cadastre-se</a></li>
-                <li><a href="index.php?action=login">Login</a></li>
-                <!-- <li><a href="index.php?action="></a></li>
-                <li><a href="index.php?action="></a></li> -->
+                <?php if (empty($_SESSION["id"])): ?>
+                    <li><a href="index.php?action=user-create">Cadastre-se</a></li>
+                    <li><a href="index.php?action=login">Login</a></li>
+                <?php else: ?>
+                    <li><a href="index.php?action=product-create">Produtos</a></li>
+                    <li><a href="index.php?action=logout">Sair</a></li>
+                <?php endif ?>
             </ul>
         </nav>
     </header>
     <main>
-        <?php include $view?>
+        
+
+     <?php 
+    if (!empty($view)) {
+        // extract($data);
+        
+        if (!empty($errors)): ?>
+            <div class="alert alert-danger">
+                <?php foreach ($errors as $error): ?>
+                    <p><?= $error; ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif;
+
+        include $view; 
+    } else {
+        echo "<p>View não encontrada.</p>";
+    }
+    ?>
+
+
     </main>
     <footer><p>&copy;Todos os Direitos Reservados</p></footer>
 </body>
