@@ -13,7 +13,7 @@ class User {
     private int $tipo;
 
     public function __construct($db) {
-        $this->setConn($db);
+        $this->setConn($db); 
     }
 
     public function check(): array | false {
@@ -50,10 +50,9 @@ class User {
             error_log('Erro ao criar registro: ' . $e->getMessage());
             return false;
         }
-    }
+    } 
 
     public function login(): bool {
-        $tabela = $this->getTabela();
         $user = $this->check();
 
         if (!$user) {
@@ -73,10 +72,33 @@ class User {
 
     public function edit() {
         $tabela = $this->getTabela();
-        // $query = "UPDATE {$tabela} 
-        //     SET ALN_NOME = :nome, ALN_CPF = :cpf, ALN_EMAIL = :email, ALN_DATA_NASCIMENTO = :nascimento 
-        //     WHERE ALN_MATRICULA = :matricula";
+        
+        $user = $this->check();
 
+        if (!$user) {
+            return false;
+        }
+
+        $query = "UPDATE {$tabela}
+            SET USE_NOME = :nome, USE_EMAIL = :email, USE_SENHA = :senha, USE_TELEFONE = :telefone, USE_VENDEDOR = :vendedor
+            WHERE USE_ID = :id";
+
+        $stmt = $this->conn->prepare($query);
+        $dados = [
+            'id' => $this->getId(),
+            'nome' => $this->getNome(),
+            'email' => $this->getEmail(),
+            'senha' => $this->getSenha(),
+            'telefone' => $this->getTelefone(),
+            'vendedor' => $this->getTipo()
+        ];
+
+        try {
+            return $stmt->execute($dados);
+        } catch (PDOException $e) {
+            error_log('Erro ao criar registro: ' . $e->getMessage());
+            return false;
+        }
     }
 
     public function getConn(): mixed {
