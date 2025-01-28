@@ -101,7 +101,7 @@
                 Vendedor
             </label>
         </fieldset>
-        <input type="submit" class="btn enviar" value="Atualizar"/>
+        <input type="submit" class="enviar" value="Atualizar"/>
     </form>
     <script defer src="./assets/js/user/create.js"></script>
 </div>

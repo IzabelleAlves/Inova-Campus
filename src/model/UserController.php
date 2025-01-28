@@ -12,7 +12,7 @@ class UserController {
         $this->user = new User($this->db);
     }
 
-    public function create() {
+    public function create(): array {
         try {
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $this->user->setNome($_POST["nome"])
@@ -28,12 +28,11 @@ class UserController {
             }
         } catch (PDOException $e) {
             error_log("Erro ao criar usuário: " . $e->getMessage());
-            return false;
         }
         return ['view' => './src/views/user/create.php', 'data' => $this->user];
     }
 
-    public function login() {
+    public function login(): array {
         try {
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $this->user->setEmail($_POST["email"])
@@ -46,12 +45,11 @@ class UserController {
             }
         } catch (PDOException $e) {
             error_log('Erro ao autenticar registro: ' . $e->getMessage());
-            return false;
         }
         return ['view' => './src/views/user/login.php', 'data' => $this->user];
     }
 
-    public function edit() {
+    public function edit(): array {
         try {
             if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 $this->user->setId($_SESSION["id"])
@@ -68,7 +66,6 @@ class UserController {
             }
         } catch (PDOException $e) {
             error_log("Erro ao editar usuário: " . $e->getMessage());
-            return false;
         }
         return ['view' => './src/views/user/edit.php', 'data' => $this->user];
     }
