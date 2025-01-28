@@ -27,7 +27,6 @@ class User {
             return $stmt->fetch(PDO::FETCH_ASSOC) ?: false;
         } catch (PDOException $e) {
             error_log('Erro ao verificar usuário no método ' . __METHOD__ . ': ' . $e->getMessage());
-            return false;
         }
     }
 

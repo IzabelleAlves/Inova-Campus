@@ -14,6 +14,20 @@ class Product {
 
     }
 
+    public function list(): mixed {
+        $tabela = $this->getTabela();
+        $query = "SELECT * FROM {$tabela}";
+
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: false;
+        } catch (PDOException $e) {
+            error_log('Erro ao verificar usuário no método ' . __METHOD__ . ': ' . $e->getMessage());
+            return false;
+        }
+    }
+
     public function create(): bool {
         $tabela = $this->getTabela();
         

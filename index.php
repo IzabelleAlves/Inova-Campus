@@ -11,17 +11,6 @@ $UserController = new UserController();
 $ProductController = new ProductController();
 $action = $_GET['action'] ?? '';
 
-
-// $result = match ($action) {
-//     'home' => ['view' => './src/views/home.php'],
-//     'product-create' => ['view' => './src/views/product/create.php'],
-//     'login' => $UserController->login(),
-//     'user-create' => $UserController->create(),
-//     'user-edit' => ['view' => './src/views/user/edit.php'],
-//     'logout' => ['view' => './src/config/logout.php'],
-//     default => ['view' => './src/views/home.php'],
-// };
-
 $result = empty($_SESSION["id"])
     ? match ($action) {
         'login' => $UserController->login(),
@@ -31,6 +20,7 @@ $result = empty($_SESSION["id"])
     : match ($action) {
         'home' => ['view' => './src/views/home.php', 'data' => []],
         'product-create' => $ProductController->create(),
+        'product-list' => $ProductController->list(),
         'user-edit' => $UserController->edit(),
         'user-delete' => $UserController->delete(),
         'logout' => ['view' => './src/config/logout.php', 'data' => []],

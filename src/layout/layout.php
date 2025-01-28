@@ -29,25 +29,25 @@
     </header>
     <main>
         
+        <?php 
+        if (!empty($view)) {
+            if (isset($data)) {
+                extract($data);
+            }
+            
+            if (!empty($errors)): ?>
+                <div class="alert alert-danger">
+                    <?php foreach ($errors as $error): ?>
+                        <p><?= $error; ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif;
 
-     <?php 
-    if (!empty($view)) {
-        // extract($data);
-        
-        if (!empty($errors)): ?>
-            <div class="alert alert-danger">
-                <?php foreach ($errors as $error): ?>
-                    <p><?= $error; ?></p>
-                <?php endforeach; ?>
-            </div>
-        <?php endif;
-
-        include $view; 
-    } else {
-        echo "<p>View não encontrada.</p>";
-    }
-    ?>
-
+            include $view; 
+        } else {
+            echo "<p>View não encontrada.</p>";
+        }
+        ?>
 
     </main>
     <footer><p>&copy;Todos os Direitos Reservados</p></footer>

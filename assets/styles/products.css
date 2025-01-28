@@ -95,3 +95,44 @@
     font-size: 0.75rem;
     color: var(--color-red);
 }
+
+/* Tabela */
+
+.productTable {
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    border-collapse: collapse; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.productTable th,
+.productTable td {
+    padding: 12px 20px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.productTable th {
+    background-color: #f4f4f4;
+    font-weight: bold; 
+    color: #333; 
+}
+
+.productTable td:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+.productTable tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+.productTable tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer; 
+}
+

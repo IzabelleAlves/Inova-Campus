@@ -17,9 +17,5 @@
             <span></span>
         </label>
         <input type="submit" value="Cadastrar" class="enviar">
-        <?= $_SESSION["id"]?>
-        <?= $_POST["nome"]?>
-        <?= $_POST["preco"]?>
-        <?= $_POST["descricao"]?>
     </form>
 </div>

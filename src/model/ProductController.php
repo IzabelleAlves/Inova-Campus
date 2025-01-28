@@ -21,13 +21,30 @@ class ProductController {
                     ->setUser($_SESSION["id"]);
 
                 if ($this->product->create()) {
-                    header("Location: index.php?action=home");
+                    header("Location: index.php?action=product-list");
                     exit;
                 }
             }
         } catch (PDOException $e) {
             error_log("Erro ao criar produto: " . $e->getMessage());
         }
-        return ['view' => './src/views/product/create.php', 'data' => $this->product];
+        return ['view' => './src/views/product/create.php', 'data' => []];
+    }
+
+    public function list() {
+        try {
+            $productsList = $this->product->list();
+            return [
+                'view' => './src/views/product/list.php',
+                'data' => compact('productsList')
+            ]; 
+            
+        } catch (PDOException $e) {
+            error_log("Erro ao encontrar os produtos: " . $e->getMessage());
+            return [
+                'view' => './src/views/error.php',
+                'data' => ['error' => 'Erro ao buscar os produtos.']
+            ];
+        }
     }
 }

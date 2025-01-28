@@ -29,7 +29,7 @@ class UserController {
         } catch (PDOException $e) {
             error_log("Erro ao criar usuário: " . $e->getMessage());
         }
-        return ['view' => './src/views/user/create.php', 'data' => $this->user];
+        return ['view' => './src/views/user/create.php', 'data' => []];
     }
 
     public function login(): array {
@@ -46,7 +46,7 @@ class UserController {
         } catch (PDOException $e) {
             error_log('Erro ao autenticar registro: ' . $e->getMessage());
         }
-        return ['view' => './src/views/user/login.php', 'data' => $this->user];
+        return ['view' => './src/views/user/login.php', 'data' => []];
     }
 
     public function edit(): array {
@@ -67,7 +67,7 @@ class UserController {
         } catch (PDOException $e) {
             error_log("Erro ao editar usuário: " . $e->getMessage());
         }
-        return ['view' => './src/views/user/edit.php', 'data' => $this->user];
+        return ['view' => './src/views/user/edit.php', 'data' => []];
     }
 
     public function delete() {
@@ -79,6 +79,6 @@ class UserController {
         } catch (PDOException $e) {
             error_log("Erro ao deletar usuário: " . $e->getMessage());
         }
-        return ['view' => './src/views/login.php', 'data' => $this->user];
+        return ['view' => './src/views/login.php', 'data' => []];
     }
 }
