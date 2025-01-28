@@ -5,8 +5,10 @@ if (!isset($_SESSION)) {
 }
 
 require_once "./src/model/UserController.php";
+require_once "./src/model/ProductController.php";
 
 $UserController = new UserController();
+$ProductController = new ProductController();
 $action = $_GET['action'] ?? '';
 
 
@@ -28,7 +30,7 @@ $result = empty($_SESSION["id"])
     }
     : match ($action) {
         'home' => ['view' => './src/views/home.php', 'data' => []],
-        'product-create' => ['view' => './src/views/product/create.php', 'data' => []],
+        'product-create' => $ProductController->create(),
         'user-edit' => $UserController->edit(),
         'user-delete' => $UserController->delete(),
         'logout' => ['view' => './src/config/logout.php', 'data' => []],

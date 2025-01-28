@@ -1,6 +1,6 @@
 <?php
 
-class Products {
+class Product {
     private $conn;
     private string $tabela = "PRODUCTS"; 
     private int $id;
@@ -17,21 +17,17 @@ class Products {
     public function create(): bool {
         $tabela = $this->getTabela();
         
-        if ($this->check()) {
-            return false;
-        }
-        
-        $query = "INSERT INTO {$tabela} (USE_NOME, USE_PRECO, USE_DESCRICAO, USE_USER)
+        $query = "INSERT INTO {$tabela} (PDT_NOME, PDT_PRECO, PDT_DESCRICAO, PDT_USER)
             VALUES (:nome, :preco, :descricao, :user)";
         $stmt = $this->conn->prepare($query);
-
+    
         $dados = [
             'nome' => $this->getNome(),
-            'preço' => $this->getPreco(),
-            'descrição' => $this->getDescricao(),
+            'preco' => $this->getPreco(),
+            'descricao' => $this->getDescricao(),
             'user' => $this->getUser(),
         ];
-
+    
         try {
             return $stmt->execute($dados);
         } catch (PDOException $e) {
@@ -39,6 +35,9 @@ class Products {
             return false;
         }
     }
+    
+
+    
     
     public function getConn() {
         return $this->conn;

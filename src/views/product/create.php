@@ -1,37 +1,25 @@
 <div class="container">
-    <h2>Cadastro de Produtos</h2>
-    <form action="index.php" method="post" id="form">
+    <h2>Cadastre seu Produto</h2>
+    <form action="index.php?action=product-create" method="post">
+        <label for="nome">
+            Nome
+            <input type="text" name="nome" id="nome">
+            <span></span>
+        </label for="preco">
         <label>
-            Nome do Produto:
-            <input type="text" id="nome" class="required" name="nome" placeholder="Digite o nome..." required/>
-            <span class="span-required">Digite o nome ao produto</span>
+            Preço
+            <input type="number" name="preco" id="preco">
+            <span></span>
         </label>
-        <label>
-            Quantidade:
-            <input type="number" id="quantidade" class="required" name="quantidade"placeholder="Digite a quantidade..." required/>
-            <span class="span-required">Digite a quantidade ao produto</span>
+        <label for="descricao">
+            Descreva seu produto
+            <textarea name="descricao" id="descricao" class="textarea"></textarea>
+            <span></span>
         </label>
-        <label for="categoria">
-            Tipo:
-            <input type="text" id="categoria" class="required" list="sugestoes" placeholder="Digite a categoria..." required/>
-            <span class="span-required">Digite ou selecione um categoria</span>
-            <datalist id="sugestoes">
-                <option value="Lanche"></option>
-                <option value="Almoço"></option>
-                <option value="Artesanato"></option>
-                <option value="Plantinhas"></option>
-            </datalist>
-        </label>
-        <label id="drop-label" for="file-input">
-            <p id="drop-text">Arraste uma imagem aqui ou clique para selecionar</p>
-            <input type="file" name="file-input" id="file-input" accept="image/*" hidden>
-            <img src="" alt="Pré visualização da imagem" id="preview" style="display: none">
-            <button type="button" id="remove-btn" style="display: none">Remover imagem</button>
-            <span class="span-required">Escolha uma imagem</span>
-        </label>
-        <input type="submit" class="enviar" value="Cadastrar">
+        <input type="submit" value="Cadastrar" class="enviar">
+        <?= $_SESSION["id"]?>
+        <?= $_POST["nome"]?>
+        <?= $_POST["preco"]?>
+        <?= $_POST["descricao"]?>
     </form>
 </div>
-<script>
-    <?php include './assets/js/products/create.js' ?>
-</script>
