@@ -28,6 +28,7 @@ class User {
         } catch (PDOException $e) {
             error_log('Erro ao verificar usuário no método ' . __METHOD__ . ': ' . $e->getMessage());
         }
+        return false;
     }
 
     public function create(): bool {

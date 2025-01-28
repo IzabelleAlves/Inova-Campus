@@ -49,8 +49,54 @@ class Product {
             return false;
         }
     }
-    
 
+    public function edit() {
+        $tabela = $this->getTabela();
+        $query = "UPDATE {$tabela} SET PDT_NOME = :nome, PDT_PRECO = :preco, PDT_DESCRICAO = :descricao WHERE PDT_ID = :id";
+        $stmt = $this->conn->prepare($query);
+
+        $dados = [
+            'id' => $_GET['id'],
+            'nome' => $this->getNome(),
+            'preco' => $this->getPreco(),
+            'descricao' => $this->getDescricao()
+        ];
+
+        try {
+            return $stmt->execute($dados);
+        } catch (PDOException $e) {
+            error_log('Erro ao editar registro na tabela ' . $tabela . ': ' . $e->getMessage());
+            return false;
+        }
+    }
+    
+    public function read() {
+        $tabela = $this->getTabela();
+        $query = "SELECT * FROM {$tabela} WHERE PDT_ID = :id";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->execute(['id' => $this->getId()]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if($row) {
+            $this->setNome($row['PDT_NOME'])
+                ->setPreco($row['PDT_PRECO'])
+                ->setDescricao($row['PDT_DESCRICAO']);
+            return true;
+        }
+        return false;
+    }
+
+    public function delete() {
+        $tabela = $this->getTabela();
+        $query = "DELETE FROM {$tabela} WHERE PDT_ID = :id";
+        $stmt = $this->conn->prepare($query);
+        
+        if ($stmt->execute(['id' => $this->getId()])) {
+            return true;
+        }
+        return false;
+    }
     
     
     public function getConn() {

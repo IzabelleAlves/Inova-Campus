@@ -31,9 +31,15 @@
         
         <?php 
         if (!empty($view)) {
-            if (isset($data)) {
-                extract($data);
-            }
+            // if (isset($data)) {
+            //     if (isset($data)) {
+            //         if (is_object($data)) {
+            //             $data = get_object_vars($data); 
+            //         }
+                    extract($data); 
+            //     }
+                
+            // }
             
             if (!empty($errors)): ?>
                 <div class="alert alert-danger">

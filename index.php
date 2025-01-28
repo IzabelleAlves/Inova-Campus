@@ -10,6 +10,7 @@ require_once "./src/model/ProductController.php";
 $UserController = new UserController();
 $ProductController = new ProductController();
 $action = $_GET['action'] ?? '';
+$id = $_GET['id'] ?? '';
 
 $result = empty($_SESSION["id"])
     ? match ($action) {
@@ -20,6 +21,8 @@ $result = empty($_SESSION["id"])
     : match ($action) {
         'home' => ['view' => './src/views/home.php', 'data' => []],
         'product-create' => $ProductController->create(),
+        'product-edit' => $ProductController->edit($id),
+        'product-delete' => $ProductController->delete($id),
         'product-list' => $ProductController->list(),
         'user-edit' => $UserController->edit(),
         'user-delete' => $UserController->delete(),

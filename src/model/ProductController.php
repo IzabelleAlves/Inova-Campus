@@ -31,6 +31,28 @@ class ProductController {
         return ['view' => './src/views/product/create.php', 'data' => []];
     }
 
+    public function edit($id) {
+        try {
+            if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                $this->product->setNome($_POST["nome"])
+                    ->setPreco($_POST["preco"])
+                    ->setDescricao($_POST["descricao"])
+                    ->setUser($_SESSION["id"]);
+
+                if ($this->product->edit()) {
+                    header("Location: index.php?action=product-list");
+                    exit;
+                }
+            } else {
+                $this->product->setId($id)
+                    ->read();
+            }
+        } catch (PDOException $e) {
+            error_log("Erro ao criar produto: " . $e->getMessage());
+        }
+        return ['view' => './src/views/product/edit.php', 'data' => ['product' => $this->product]];
+    }
+
     public function list() {
         try {
             $productsList = $this->product->list();
@@ -45,6 +67,20 @@ class ProductController {
                 'view' => './src/views/error.php',
                 'data' => ['error' => 'Erro ao buscar os produtos.']
             ];
+        }
+    }
+    public function read() {
+    $this->product->setId($_GET['id'])
+            ->read();
+        return ["view" => "./src/views/product/read.php", "data" => ["aluno" => $this->product]];
+    }
+
+    public function delete($id) {
+        $this->product->setId($id);
+
+        if ($this->product->delete()) {
+            header("Location: index.php?action=product-list");
+            exit;
         }
     }
 }
