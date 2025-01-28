@@ -4,7 +4,8 @@
     --color-light-green: #1875014d;
     --color-red: #ff4d4d;
     --color-dark-red: #cc0000;
-    --color-blue-upload: #007bff;
+    --color-blue: #007bff;
+    --color-dark-blue: #004896;
     --color-white: #fff;
     --color-gray: #f0f8ff;
 }
@@ -169,7 +170,7 @@ fieldset {
     border: none;
 }
 
-.enviar {
+.btn {
     width: 100%;
     height: 1.8rem;
     font-size: 1rem;
@@ -177,10 +178,29 @@ fieldset {
     border-radius: 1.8rem;
     cursor: pointer;
     color: var(--color-white);
+}
+
+.btn.edit {
+    background-color: var(--color-blue);
+}
+
+.btn.edit:hover {
+    background-color: var(--color-dark-blue);
+}
+
+.btn.delete {
+    background-color: var(--color-red);
+}
+
+.btn.delete:hover {
+    background-color: var(--color-dark-red);
+}
+
+.btn.enviar {
     background-color: var(--color-green);
 }
 
-.enviar:hover {
+.btn.enviar:hover {
     background-color: var(--color-dark-green);
 }
 

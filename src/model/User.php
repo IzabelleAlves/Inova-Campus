@@ -19,38 +19,53 @@ class User {
     public function check(): array | false {
         $tabela = $this->getTabela();
         $query = "SELECT * FROM {$tabela} WHERE USE_EMAIL = :email LIMIT 1";
-        $stmt = $this->conn->prepare($query);
-        $email = $this->getEmail();
-        $stmt->execute(['email' => $email]);
-        return $stmt->fetch(PDO::FETCH_ASSOC) ?: false;
+
+        try {
+            $stmt = $this->conn->prepare($query);
+            $email = $this->getEmail();
+            $stmt->execute(['email' => $email]);
+            return $stmt->fetch(PDO::FETCH_ASSOC) ?: false;
+        } catch (PDOException $e) {
+            error_log('Erro ao verificar usuário no método ' . __METHOD__ . ': ' . $e->getMessage());
+            return false;
+        }
     }
 
     public function create(): bool {
         $tabela = $this->getTabela();
-        
+    
+        // Verifica se o usuário já existe
         if ($this->check()) {
             return false;
         }
-        
+    
+        // Validação do e-mail
+        if (!filter_var($this->getEmail(), FILTER_VALIDATE_EMAIL)) {
+            error_log('E-mail inválido: ' . $this->getEmail());
+            return false;
+        }
+    
         $query = "INSERT INTO {$tabela} (USE_NOME, USE_EMAIL, USE_SENHA, USE_TELEFONE, USE_VENDEDOR)
             VALUES (:nome, :email, :senha, :telefone, :vendedor)";
         $stmt = $this->conn->prepare($query);
+    
+        $senhaHash = password_hash($this->getSenha(), PASSWORD_DEFAULT);
 
         $dados = [
             'nome' => $this->getNome(),
             'email' => $this->getEmail(),
-            'senha' => $this->getSenha(),
+            'senha' => $senhaHash, 
             'telefone' => $this->getTelefone(),
             'vendedor' => $this->getTipo()
         ];
-
+    
         try {
             return $stmt->execute($dados);
         } catch (PDOException $e) {
-            error_log('Erro ao criar registro: ' . $e->getMessage());
+            error_log('Erro ao criar registro na tabela ' . $tabela . ': ' . $e->getMessage());
             return false;
         }
-    } 
+    }
 
     public function login(): bool {
         $user = $this->check();
@@ -59,12 +74,13 @@ class User {
             return false;
         }
 
-        if ($this->getSenha() === $user['USE_SENHA']) {
+        if (password_verify($this->getSenha(), $user['USE_SENHA'])) {
             $_SESSION['id'] = $user['USE_ID'];
             $_SESSION['email'] = $user['USE_EMAIL'];
             $_SESSION['nome'] = $user['USE_NOME'];
             $_SESSION['telefone'] = $user['USE_TELEFONE'];
             $_SESSION['tipo'] = $user['USE_VENDEDOR'];
+    
             return true;
         }
         return false;
@@ -94,9 +110,36 @@ class User {
         ];
 
         try {
-            return $stmt->execute($dados);
+             if ($stmt->execute($dados)) {
+                $_SESSION["id"] = $dados["id"];
+                $_SESSION["nome"] = $dados["nome"];
+                $_SESSION["email"] = $dados["email"];
+                $_SESSION["telefone"] = $dados["telefone"];
+                $_SESSION["tipo"] = $dados["vendedor"];
+                return true;
+            }
         } catch (PDOException $e) {
-            error_log('Erro ao criar registro: ' . $e->getMessage());
+            error_log('Erro ao atualizar registro: ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function delete(): bool {
+        $tabela = $this->getTabela();
+        
+        $user = $this->check();
+
+        if (!$user) {
+            return false;
+        }
+
+        $query = "DELETE FROM {$tabela} WHERE USE_EMAIL = :email";
+        $stmt = $this->conn->prepare($query);
+
+         try {
+            return $stmt->execute(['email' => $this->getEmail()]);
+        } catch (PDOException $e) {
+            error_log('Erro ao excluir registro: ' . $e->getMessage());
             return false;
         }
     }

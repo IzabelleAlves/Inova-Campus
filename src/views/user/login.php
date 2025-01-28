@@ -21,6 +21,6 @@
                 required
             />
         </label>
-        <input type="submit" class="enviar" value="Enviar">
+        <input type="submit" class="btn enviar" value="Enviar">
     </form>
 </div>

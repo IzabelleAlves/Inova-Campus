@@ -26,9 +26,9 @@ class UserController {
                     exit;
                 }
             }
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             error_log("Erro ao criar usuário: " . $e->getMessage());
-            echo "Ocorreu um erro inesperado. Tente novamente mais tarde.";
+            return false;
         }
         return ['view' => './src/views/user/create.php', 'data' => $this->user];
     }
@@ -66,10 +66,22 @@ class UserController {
                     exit;
                 }
             }
-        } catch (Exception $e) {
+        } catch (PDOException $e) {
             error_log("Erro ao editar usuário: " . $e->getMessage());
-            echo "Ocorreu um erro inesperado. Tente novamente mais tarde.";
+            return false;
         }
         return ['view' => './src/views/user/edit.php', 'data' => $this->user];
+    }
+
+    public function delete() {
+        try {
+            $this->user->setEmail($_SESSION["email"]);
+            if ($this->user->delete()) {
+                require_once './src/config/logout.php';
+            }
+        } catch (PDOException $e) {
+            error_log("Erro ao deletar usuário: " . $e->getMessage());
+        }
+        return ['view' => './src/views/login.php', 'data' => $this->user];
     }
 }

@@ -24,12 +24,13 @@ $result = empty($_SESSION["id"])
     ? match ($action) {
         'login' => $UserController->login(),
         'user-create' => $UserController->create(),
-        default => ['view' => './src/views/use/login.php', 'data' => []],
+        default => ['view' => './src/views/user/login.php', 'data' => []],
     }
     : match ($action) {
         'home' => ['view' => './src/views/home.php', 'data' => []],
-        'product-create' => ['view' => './src/views/product/create.php'],
+        'product-create' => ['view' => './src/views/product/create.php', 'data' => []],
         'user-edit' => $UserController->edit(),
+        'user-delete' => $UserController->delete(),
         'logout' => ['view' => './src/config/logout.php', 'data' => []],
         default => ['view' => './src/views/home.php', 'data' => []],
     };

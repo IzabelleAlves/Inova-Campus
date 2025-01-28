@@ -1,6 +1,6 @@
 <div class="container">
-    <h2>Cadastre-se</h2>
-    <form id="form" action="index.php?action=user-create" method="post" >
+    <h2>Editar</h2>
+    <form id="form" action="index.php?action=user-edit" method="post" >
         <label for="email">
             Email:
             <input
@@ -101,7 +101,7 @@
                 Vendedor
             </label>
         </fieldset>
-        <input type="submit" class="enviar" value="Cadastrar"/>
+        <input type="submit" class="btn enviar" value="Atualizar"/>
     </form>
     <script defer src="./assets/js/user/create.js"></script>
 </div>
