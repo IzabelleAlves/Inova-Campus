@@ -20,7 +20,7 @@
                         <td><?=$products["PDT_DESCRICAO"]?></td>
                         <td>
                             <a href="index.php?action=product-edit&id=<?=$products["PDT_ID"]?>">Editar</a>
-                            <a href="">Ver</a>
+                            <a href="index.php?action=product-read&id=<?=$products["PDT_ID"]?>">Ver</a>
                             <a href="index.php?action=product-delete&id=<?=$products["PDT_ID"]?>" onclick="return confirm('Você tem certeza que deseja deletar este produto?')">Excluir</a>
                         </td>
                     </tr>

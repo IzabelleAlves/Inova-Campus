@@ -22,6 +22,7 @@ $result = empty($_SESSION["id"])
         'home' => ['view' => './src/views/home.php', 'data' => []],
         'product-create' => $ProductController->create(),
         'product-edit' => $ProductController->edit($id),
+        'product-read' => $ProductController->read($id),
         'product-delete' => $ProductController->delete($id),
         'product-list' => $ProductController->list(),
         'user-edit' => $UserController->edit(),

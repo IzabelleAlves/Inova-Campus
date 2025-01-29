@@ -70,7 +70,7 @@ class Product {
         }
     }
     
-    public function read() {
+    public function read(): bool {
         $tabela = $this->getTabela();
         $query = "SELECT * FROM {$tabela} WHERE PDT_ID = :id";
         $stmt = $this->conn->prepare($query);
@@ -79,7 +79,8 @@ class Product {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if($row) {
-            $this->setNome($row['PDT_NOME'])
+            $this->setId($row['PDT_ID'])
+                ->setNome($row['PDT_NOME'])
                 ->setPreco($row['PDT_PRECO'])
                 ->setDescricao($row['PDT_DESCRICAO']);
             return true;

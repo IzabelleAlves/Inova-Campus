@@ -69,18 +69,39 @@ class ProductController {
             ];
         }
     }
-    public function read() {
-    $this->product->setId($_GET['id'])
+    public function read($id) {
+        try {
+
+            $this->product->setId($id)
             ->read();
-        return ["view" => "./src/views/product/read.php", "data" => ["aluno" => $this->product]];
+            return [
+                "view" => "./src/views/product/read.php", 
+                "data" => ["product" => $this->product
+            ]];
+        } catch (PDOException $e) {
+            error_log("Erro ao encontrar os produtos: " . $e->getMessage());
+            return [
+                'view' => './src/views/error.php',
+                'data' => ['error' => 'Erro ao ler o produto.']
+            ];
+        }
     }
 
     public function delete($id) {
-        $this->product->setId($id);
+        try {
 
-        if ($this->product->delete()) {
-            header("Location: index.php?action=product-list");
-            exit;
+            $this->product->setId($id);
+            
+            if ($this->product->delete()) {
+                header("Location: index.php?action=product-list");
+                exit;
+            }
+        } catch (PDOException $e) {
+            error_log("Erro ao encontrar os produtos: " . $e->getMessage());
+            return [
+                'view' => './src/views/error.php',
+                'data' => ['error' => 'Erro ao ler o produto.']
+            ];
         }
     }
 }
