@@ -69,6 +69,24 @@ class ProductController {
             ];
         }
     }
+
+    public function listAll() {
+        try {
+            $productsList = $this->product->listAll();
+            return [
+                'view' => './src/views/product/listAll.php',
+                'data' => compact('productsList')
+            ]; 
+            
+        } catch (PDOException $e) {
+            error_log("Erro ao encontrar os produtos: " . $e->getMessage());
+            return [
+                'view' => './src/views/error.php',
+                'data' => ['error' => 'Erro ao buscar os produtos.']
+            ];
+        }
+    }
+
     public function read($id) {
         try {
 
@@ -78,6 +96,23 @@ class ProductController {
                 "view" => "./src/views/product/read.php", 
                 "data" => ["product" => $this->product
             ]];
+        } catch (PDOException $e) {
+            error_log("Erro ao encontrar os produtos: " . $e->getMessage());
+            return [
+                'view' => './src/views/error.php',
+                'data' => ['error' => 'Erro ao ler o produto.']
+            ];
+        }
+    }
+
+    public function readAll($id) {
+        try {
+            $read = $this->product->setId($id)
+            ->listProduct();
+            return [
+                "view" => "./src/views/product/readAll.php", 
+                "data" => compact('read')
+            ];
         } catch (PDOException $e) {
             error_log("Erro ao encontrar os produtos: " . $e->getMessage());
             return [

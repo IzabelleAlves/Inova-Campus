@@ -3,6 +3,7 @@
 class Product {
     private $conn;
     private string $tabela = "PRODUCTS"; 
+    private string $tabela2 = "USERS"; 
     private int $id;
     private string $nome;
     private float $preco;
@@ -16,7 +17,50 @@ class Product {
 
     public function list(): mixed {
         $tabela = $this->getTabela();
-        $query = "SELECT * FROM {$tabela}";
+        $query = "SELECT * FROM {$tabela} WHERE PDT_USER = :id";
+
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute(['id' => $_SESSION['id']]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: false;
+        } catch (PDOException $e) {
+            error_log('Erro ao verificar usuário no método ' . __METHOD__ . ': ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function listAll(): mixed {
+        $tabela = $this->getTabela();
+        $tabela2 = $this->getTabela2();
+        $query = "SELECT {$tabela}.*, {$tabela2}.USE_ID, {$tabela2}.USE_TELEFONE
+                    FROM {$tabela}
+                    LEFT JOIN {$tabela2}
+                    ON {$tabela}.PDT_USER = {$tabela2}.USE_ID";
+
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: false;
+        } catch (PDOException $e) {
+            error_log('Erro ao verificar usuário no método ' . __METHOD__ . ': ' . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function listProduct(): mixed {
+        $tabela = $this->getTabela();
+        $tabela2 = $this->getTabela2();
+        $id = $this->getId();
+        $query = "SELECT 
+                        {$tabela}.*, {$tabela2}.USE_ID, {$tabela2}.USE_NOME, {$tabela2}.USE_TELEFONE
+                    FROM 
+                        {$tabela}
+                    LEFT JOIN 
+                        {$tabela2}  
+                    ON 
+                        {$tabela}.PDT_USER = {$tabela2}.USE_ID
+                    WHERE 
+                        PDT_ID = {$id}";
 
         try {
             $stmt = $this->conn->prepare($query);
@@ -119,6 +163,16 @@ class Product {
     
     public function setTabela(string $tabela): self {
         $this->tabela = $tabela;
+
+        return $this;
+    }
+    public function getTabela2(): string {
+        return $this->tabela2;
+    }
+
+    
+    public function setTabela2(string $tabela2): self {
+        $this->tabela2 = $tabela2;
 
         return $this;
     }

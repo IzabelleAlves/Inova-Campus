@@ -35,7 +35,7 @@
                 name="senha"
                 class="input required"
                 placeholder="Digite uma senha com 8 digitos"
-                title="Cire uma senha com letras e números"
+                title="Crie uma senha com letras e números"
                 minlength="8"
                 required
             />
