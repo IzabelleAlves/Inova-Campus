@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+.container {
+  max-width: 100%;
+  width: 80%;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  display: grid;
+  gap: 12px;
+}
+
+.container .link,
+.container .link a {
+  text-align: start;
+  text-decoration: underline;
+  color: black;
+  font-size: 12px;
+}
+
+.container .link a .bold {
+  color: #267222;
+  font-weight: 600;
+}
+
+.header {
+  background-color: #2e7d32;
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-size: small;
+}
+
+.user {
+  margin-top: 15px;
+  display: flex;
+  font-size: 12px;
+}
+.user img {
+  border-radius: 50%;
+  max-width: 100%;
+  width: 40px;
+  height: 40px;
+}
+.tittle {
+  margin-top: 10px;
+  text-decoration: underline;
+  font-size: 20px;
+}
+
+.form .tittle {
+  text-align: center;
+}
+
+.form p {
+  text-align: start;
+}
+
+.form input {
+  width: 100%;
+  padding: 12px 0px 12px 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.info {
+  font-size: 10px;
+  color: red;
+}
+.btn {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
+}
+.cancel,
+.save {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.cancel {
+  background: white;
+  border: 1px solid red;
+  color: red;
+}
+.save {
+  background: #2e7d32;
+  color: white;
+  border: none;
+}
