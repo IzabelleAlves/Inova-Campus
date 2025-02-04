@@ -1,0 +1,147 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: .3rem;
+}
+
+.menu div {
+    width: 2rem;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--color-dark-green);
+}
+
+.img p  {
+    margin: .5rem;
+    opacity: 0.5;
+}
+
+.textarea {
+    resize: none;
+    padding: 0.5rem;
+    height: 200px;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.enviar {
+    width: 50%;
+    height: 1.8rem;
+    margin: 0 auto;
+    font-size: 1rem;
+    border: none;
+    border-radius: 1.8rem;
+    cursor: pointer;
+    color: white;
+    background-color: var(--color-green);
+}
+
+.enviar:hover {
+    background-color: var(--color-dark-green);
+}
+
+#drop-label {
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#drop-label.upload {
+    border-color: var(--color-dark-green);
+}
+
+#drop-label.null {
+    border-color: var(--color-dark-red);
+}
+
+#drop-label.dragover {
+    background-color: var(--color-gray);
+    border-color: var(--color-blue-upload);
+}
+
+#remove-btn {
+    margin-top: 1rem;
+    background-color: var(--color-red);
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+#remove-btn:hover {
+    background-color: var(--color-dark-red);
+}
+
+#preview {
+    width: 100%;
+}
+
+.span-required {
+    display: none;
+    font-size: 0.75rem;
+    color: var(--color-red);
+}
+
+/* Tabela */
+
+.productTable {
+    width: 100%; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    border-collapse: collapse; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.productTable th,
+.productTable td {
+    padding: 12px 20px; 
+    text-align: left; 
+    border-bottom: 1px solid #ddd; 
+    max-width: 200px; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* .productTable td:nth-child(4) {
+    max-width: 200px; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+} */
+
+.productTable th {
+    background-color: #f4f4f4;
+    font-weight: bold; 
+    color: #333; 
+}
+
+.productTable td:last-child {
+    display: flex;
+    justify-content: space-between;
+    min-width: 200px; 
+}
+
+.productTable tr:nth-child(even) {
+    background-color: #f9f9f9; 
+}
+
+.productTable tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer; 
+}
+
