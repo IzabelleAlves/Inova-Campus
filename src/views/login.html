@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Inova Campus</title>
-    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="stylesheet" href="../styles/login.css">
 </head>
 <body>
     <div class="container">
@@ -22,10 +22,12 @@
                 <input type="password" id="senha" placeholder="Digite aqui ..." required>
                 <a href="#" class="esqueceu">Esqueceu a senha?</a>
 
-                <div class="radio-group">
-                    <label>Eu sou:</label>
+                <div class="selecionar-tipo">
+                    <span>Eu sou:</span>
+                    <div class="radio-group">
                     <label><input type="radio" name="tipo" value="cliente"> Cliente</label>
                     <label><input type="radio" name="tipo" value="vendedor"> Vendedor</label>
+                </div>
                 </div>
 
                 <button type="submit" class="btn entrar">Entrar</button>
