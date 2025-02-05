@@ -1,4 +1,4 @@
-/* Reset básico */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,9 +6,9 @@
     font-family: Arial, sans-serif;
 }
 
-/* Cabeçalho verde */
+
 header {
-    background-color: #2D7D32; /* Verde forte */
+    background-color: #2D7D32; 
     color: white;
     text-align: left;
     padding: 20px;
@@ -16,18 +16,18 @@ header {
     font-weight: bold;
 }
 
-/* Estilização do container principal */
+
 main {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 90vh;
-    background-color: #f8f8f8; /* Fundo neutro */
+    background-color: #f8f8f8;/
 }
 
-/* Cartão de boas-vindas */
+
 .welcome-card {
-    background: rgba(85, 168, 98, 0.3); /* Verde translúcido */
+    background: rgba(85, 168, 98, 0.3); 
     padding: 20px;
     border-radius: 12px;
     width: 80%;
@@ -37,7 +37,7 @@ main {
     position: relative;
 }
 
-/* Botão de fechar */
+
 .close-btn {
     position: absolute;
     top: 10px;
@@ -49,21 +49,21 @@ main {
     color: #333;
 }
 
-/* Título */
+
+
 h2 {
     font-size: 18px;
     color: #2D7D32;
     margin-bottom: 10px;
 }
 
-/* Parágrafo */
 p {
     font-size: 14px;
     color: #333;
     margin-bottom: 15px;
 }
 
-/* Botão de atualização */
+
 .update-btn {
     background-color: #2D7D32;
     color: white;
