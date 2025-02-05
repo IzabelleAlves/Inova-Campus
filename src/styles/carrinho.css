@@ -26,13 +26,12 @@ header h1 {
 }
 
 .user-icon img {
-  width: 30px; /* Ajuste o tamanho desejado */
-  height: 30px; /* Torna a imagem proporcional */
-  border-radius: 50%; /* Deixa a imagem circular */
-  object-fit: cover; /* Garante que o conteúdo da imagem se ajuste corretamente */
-  cursor: pointer; /* Opcional: cursor de "mão" ao passar por cima */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
 }
-
 
 .menu-icon {
   cursor: pointer;
@@ -50,20 +49,18 @@ header h1 {
 /* Menu Lateral */
 nav {
   position: fixed;
-  top: 0; /* Garante que o menu comece no topo */
+  top: 0;
   left: 0;
   height: 100%;
   width: 200px;
   background-color: #333;
   color: #fff;
-  padding: 60px 20px; /* Adiciona espaço no topo para não sobrepor o cabeçalho */
+  padding-top: 60px; /* Ajusta automaticamente para evitar sobreposição */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 1000;
 }
-
-
 
 nav ul {
   list-style: none;
@@ -91,7 +88,6 @@ nav.visible {
   padding: 20px;
 }
 
-/* Restante do estilo é igual */
 .cart-item {
   display: flex;
   align-items: center;
@@ -111,17 +107,6 @@ nav.visible {
 
 .cart-item-info {
   flex: 1;
-}
-
-.cart-item-title {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.cart-item-price {
-  font-size: 13px;
-  color: #555;
 }
 
 .quantity-controller {
@@ -161,8 +146,6 @@ nav.visible {
   font-weight: bold;
   text-align: center;
   padding: 10px;
-  border: none;
   border-radius: 5px;
   text-decoration: none;
-  font-size: 16px;
 }

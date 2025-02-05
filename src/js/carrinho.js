@@ -18,7 +18,7 @@ function updateTotal() {
   document.getElementById('total-price').innerText = total.toFixed(2).replace('.', ',');
 }
 
-// Mostrar ou ocultar o menu
+// Mostrar ou ocultar o menu e ajustar paddingTop
 function toggleMenu() {
   const menu = document.getElementById('menu');
   const headerHeight = document.querySelector('header').offsetHeight;
