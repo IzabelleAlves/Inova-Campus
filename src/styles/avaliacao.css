@@ -39,7 +39,7 @@ body {
 
 /* Cabeçalho */
 header {
-    background-color: #2f7d32;
+    background-color: #267222;
     color: white;
     padding: 15px 0;
 }
@@ -59,17 +59,18 @@ header {
 }
 
 .back-link span {
-    color: #2f7d32;
+    color: #267222;
 }
 
 /* Informações do usuário */
 .user-info {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 10px;
-    margin: 15px 0;
+    margin: 15px;
+    justify-content: flex-start; /* Alinha à esquerda */
 }
+
 
 .user-img {
     width: 40px;
@@ -80,12 +81,14 @@ header {
 /* Informações do Vendedor */
 h2 {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: normal; /* Remove o negrito */
     margin-bottom: 15px;
+    text-decoration: underline;
 }
 
+
 .info-box {
-    background-color: #a3d7a3;
+    background-color: #98BB97;
     padding: 20px;
     border-radius: 10px;
     width: 150px; /* Defina um tamanho fixo */
@@ -105,7 +108,7 @@ h2 {
 }
 
 .info-number {
-    font-size: 28px;
+    font-size: 45px;
     font-weight: bold;
     margin: 5px 0;
 }
@@ -116,7 +119,8 @@ h2 {
 
 /* Botões */
 .btn {
-    background-color: #2f7d32;
+    font-family:'Poppins', sans-serif;
+    background-color: #267222;
     color: white;
     border: none;
     padding: 10px 15px;
