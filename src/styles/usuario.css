@@ -15,29 +15,34 @@ body {
     text-align: left;
     padding-left: 15px;
 }
+.nav-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 10px;
+}
 
 .back-link {
-    display: block;  /* Garante que o link ocupe toda a largura disponível */
-    text-align: left; /* Alinha o texto à esquerda */
-    margin: 15px; /* Mantém o espaçamento */
+    display: block;  
+    text-align: left; 
+    margin: 15px;
     color: #333;
     text-decoration: none;
     font-size: 14px;
-    padding-left: 15px; /* Adiciona um pequeno recuo para não encostar na borda */
+    padding-left: -10px; 
 }
 
-
 .logout-btn {
-    float: right;
-    margin: 10px;
+    margin: 0 15px;
     padding: 5px 10px;
     font-size: 12px;
     border: 1px solid red;
     color: red;
     background: white;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
+
 
 .profile {
     display: flex;
@@ -45,6 +50,14 @@ body {
     align-items: center;
     margin-top: 10px;
     position: relative;
+}
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; 
+    border: 3px solid #ddd; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .avatar {
@@ -91,6 +104,8 @@ hr {
 ul {
     list-style: none;
     padding: 0;
+    margin-left: -100px; 
+    margin-top: 50px;
 }
 
 ul li {
