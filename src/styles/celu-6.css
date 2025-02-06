@@ -1,4 +1,4 @@
-/* Estilos gerais */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f8f8;
@@ -7,14 +7,14 @@ body {
     text-align: center;
 }
 
-/* Barra superior */
+
 .top-bar {
     background-color: #2e7d32;
-    height: 80px;  /* Altura da barra */
+    height: 80px;  
     width: 100%;
     display: flex;
-    align-items: flex-end;  /* Alinha o conteúdo na parte inferior */
-    padding-left: 20px;  /* Adiciona um espaço à esquerda */
+    align-items: flex-end;  
+    padding-left: 20px;  
 }
 
 .top-bar h1 {
@@ -23,7 +23,7 @@ body {
     margin: 0;
 }
 
-/* Cabeçalho */
+
 header p {
     font-size: 14px;
     margin: 10px 0;
@@ -35,42 +35,42 @@ header a {
     font-weight: bold;
 }
 
-/* Texto destacado */
+
 .highlight-text {
     color: #2e7d32;
     font-size: 19px;
     font-weight: bold;
     margin-top: 50px;
 }
-/* Estilo para o parágrafo */
+
 p {
-    font-size: 16px;  /* Tamanho da fonte */
-    color: #333;  /* Cor de texto mais escura para o parágrafo */
-    line-height: 1.6;  /* Aumenta o espaçamento entre as linhas do texto */
-    margin-bottom: 20px;  /* Espaço abaixo do parágrafo */
+    font-size: 16px;  
+    color: #333;  
+    line-height: 1.6;  
+    margin-bottom: 20px; 
     margin-top: 50px;
     margin:30px;
 }
 
-/* Estilo para o texto em negrito (<b>) */
+
 b {
-    color: #2e7d32;  /* Cor verde para o texto em negrito */
-    font-weight: bold;  /* Garante que o texto em <b> esteja em negrito */
+    color: #2e7d32; 
+    font-weight: bold; 
 }
 
-/* Caixa de mensagem */
+
 .message-box {
-    background-color: #c8e6c9;  /* Cor de fundo suave */
-    padding: 30px;  /* Espaçamento interno do quadrado */
-    margin-top: 20px;  /* Espaço superior */
-    margin-bottom: 20px;  /* Espaço inferior */
-    margin-left: 20px;  /* Espaço à esquerda */
-    margin-right: 20px;  /* Espaço à direita */
-    border-radius: 12px;  /* Bordas arredondadas */
+    background-color: #c8e6c9;  
+    padding: 30px;  
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    margin-left: 20px;  
+    margin-right: 20px;  
+    border-radius: 12px; 
 }
 
 
-/* Botão */
+
 button {
     background-color: #2e7d32;
     color: white;
