@@ -1,3 +1,8 @@
+<?php 
+if ($_SERVER['REQUEST_METHOD' === 'POST']) {
+    
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,9 +19,9 @@
         <div class="content">
             <h2>Faça negócios no Inova Campus</h2>
             <p class="subtitulo">Onde vendedores e clientes encontram as melhores oportunidades para comprar e vender</p>
-            <form>
+            <form method="post">
                 <label for="email">Email:</label>
-                <input type="email" id="email" placeholder="Digite aqui ..." required>
+                <input type="email" id="email" placeholder="Digite aqui ..." value="<?= $_POST['email'] ?? ''?>"  required/>
 
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" placeholder="Digite aqui ..." required>

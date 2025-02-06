@@ -63,6 +63,10 @@ input {
     
 }
 
+.erro {
+    color: rgb(135, 6, 6);
+}
+
 .radio-group {
     display: flex;
     justify-content: flex-start;
@@ -79,6 +83,7 @@ input {
 }
 
 button:hover {
+    color: white;
     background-color: #256522;
 }
 
@@ -92,4 +97,5 @@ button:hover {
     background-color: white;
     color: #2d7a2d;
     border: 1px solid #2d7a2d;
+    transition: 0.4s;
 }
