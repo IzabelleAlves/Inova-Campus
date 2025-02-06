@@ -65,17 +65,22 @@ input {
 
 .radio-group {
     display: flex;
-    justify-content: flex-start;
+    justify-content:flex-start;
     align-items: center;
     gap: 10%;
+    margin-top: 5px;
 }
 
 .radio-group label {
-    margin-left: 0px;
+    margin-left: 0;
     margin-right: 50px;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
 }
 .radio-group input {
     margin: 0;
+    transform: scale(1.5);
 }
 
 button:hover {
