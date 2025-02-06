@@ -10,16 +10,16 @@ body {
 /* Barra superior */
 .top-bar {
     background-color: #2e7d32;
-    height: 50px;
+    height: 80px;  /* Altura da barra */
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;  /* Alinha o conteúdo na parte inferior */
+    padding-left: 20px;  /* Adiciona um espaço à esquerda */
 }
 
 .top-bar h1 {
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     margin: 0;
 }
 
@@ -38,16 +38,37 @@ header a {
 /* Texto destacado */
 .highlight-text {
     color: #2e7d32;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: bold;
+    margin-top: 50px;
+}
+/* Estilo para o parágrafo */
+p {
+    font-size: 16px;  /* Tamanho da fonte */
+    color: #333;  /* Cor de texto mais escura para o parágrafo */
+    line-height: 1.6;  /* Aumenta o espaçamento entre as linhas do texto */
+    margin-bottom: 20px;  /* Espaço abaixo do parágrafo */
+    margin-top: 50px;
+    margin:30px;
+}
+
+/* Estilo para o texto em negrito (<b>) */
+b {
+    color: #2e7d32;  /* Cor verde para o texto em negrito */
+    font-weight: bold;  /* Garante que o texto em <b> esteja em negrito */
 }
 
 /* Caixa de mensagem */
 .message-box {
-    background-color: #c8e6c9;
-    padding: 15px;
-    margin-top: 20px;
+    background-color: #c8e6c9;  /* Cor de fundo suave */
+    padding: 30px;  /* Espaçamento interno do quadrado */
+    margin-top: 20px;  /* Espaço superior */
+    margin-bottom: 20px;  /* Espaço inferior */
+    margin-left: 20px;  /* Espaço à esquerda */
+    margin-right: 20px;  /* Espaço à direita */
+    border-radius: 12px;  /* Bordas arredondadas */
 }
+
 
 /* Botão */
 button {
@@ -57,6 +78,7 @@ button {
     padding: 10px 15px;
     font-size: 14px;
     cursor: pointer;
+    border-radius: 12px;
 }
 
 button:hover {
