@@ -157,6 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button class="btn save" onclick="salvarAlteracoes()">Salvar Alterações</button> -->
             <button type="reset" class="btn cancel">Descartar Alterações</button>
             <button type="submit" class="btn save">Salvar Alterações</button>
+            <a href="./delete.php" type="submit" class="btn">Apagar Conta</a>
         </div>
     </form>
     <div class="erros">
