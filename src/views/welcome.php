@@ -1,5 +1,9 @@
 <?php
+if (!isset($_SESSION)) {
     session_start();
+}
+require_once './protect.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -21,7 +25,7 @@
                 Que bom ter você por aqui! Este é o momento perfeito para deixar seu perfil com a sua cara: 
                 Adicione uma foto de perfil e personalize suas preferências.
             </p>
-            <button class="update-btn">Atualize seu perfil</button>
+            <a href="./usuario.php" class="update-btn">Atualize seu perfil</a>
         </div>
     </main>
 </body>
