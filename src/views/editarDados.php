@@ -29,14 +29,12 @@
         </div>
         <div class="form-group">
             <label for="tipo-conta">Tipo de conta:</label>
-            <input type="text" id="tipo-conta" placeholder="Informe o tipo de conta">
-        </div>
         
         <p class="info-text">Informações não alteradas não requerem atualização</p>
         
         <div class="buttons">
-            <button class="btn cancel" onclick="descartarAlteracoes()">Descartar Alterações</button>
-            <button class="btn save" onclick="salvarAlteracoes()">Salvar Alterações</button>
+            <!-- <button class="btn cancel" onclick="descartarAlteracoes()">Descartar Alterações</button>
+            <button class="btn save" onclick="salvarAlteracoes()">Salvar Alterações</button> -->
         </div>
     </div>
     

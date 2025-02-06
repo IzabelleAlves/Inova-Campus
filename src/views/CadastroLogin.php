@@ -102,6 +102,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="email" 
                 placeholder="Digite aqui ..." 
                 value="<?= htmlspecialchars($_POST['email'] ?? '') ?>" 
+                required
             />
             <?php if (!empty($error['email'])): ?>
                 <span class="erro"><?= htmlspecialchars($error['email']) ?></span>
@@ -114,6 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="name" 
                 placeholder="Digite aqui ..."
                 value="<?= htmlspecialchars($_POST['name'] ?? '') ?>" 
+                required
             />
             <?php if (!empty($error['name'])): ?>
                 <span class="erro"><?= htmlspecialchars($error['name']) ?></span>
@@ -126,6 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="password" 
                 placeholder="Digite aqui ..."
                 value="<?= htmlspecialchars($_POST['password'] ?? '') ?>" 
+                required
             />
             <?php if (!empty($error['password'])): ?>
                 <span class="erro"><?= htmlspecialchars($error['password']) ?></span>
@@ -138,6 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="confirm"
                 placeholder="Digite aqui ..." 
                 value="<?= htmlspecialchars($_POST['confirm'] ?? '') ?>" 
+                required
             />
             <?php if (!empty($error['confirm'])): ?>
                 <span class="erro"><?= htmlspecialchars($error['confirm']) ?></span>
@@ -150,6 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 name="tel" 
                 placeholder="( ) _____-____" 
                 value="<?= htmlspecialchars($_POST['tel'] ?? '') ?>" 
+                required
             />
             <?php if (!empty($error['tel'])): ?>
                 <span class="erro"><?= htmlspecialchars($error['tel']) ?></span>
@@ -166,7 +171,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn">Cadastrar</button>
         </form>
         <div class="erros">
-            <?php if (isset($error['connection']) || isset($error['query'])): ?>
+            <?php if (isset($error['query'])): ?>
                 <span class="erro"><?= htmlspecialchars($error['query']) ?></span>
                 <?php $error = [] ?>
             <?php endif ?>
