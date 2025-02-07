@@ -1,5 +1,8 @@
 <?php 
-session_start();
+if (!isset($_SESSION)) {
+    session_start();
+}
+
 // Armazena os erros
 $error = [];
 
@@ -98,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 />
                 <a href="#" class="esqueceu">Esqueceu a senha?</a>
 
-                <!-- <div class="selecionar-tipo">
+                <!-- <div class="selecionar-tipo"> Vai ter mais não!
                     <span>Eu sou:</span>
                     <div class="radio-group">
                     <label><input type="radio" name="tipo" value="cliente"> Cliente</label>
