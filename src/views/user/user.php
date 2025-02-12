@@ -1,6 +1,6 @@
 <div class="container">
     <div class="nav-container">
-        <a href="#" class="back-link">Ir Para página inicial</a>
+        <a href="index.php?action=vendas" class="back-link">Ir Para página inicial</a>
         <a href="index.php?action=logout" class="logout-btn">Sair da conta</a>
     </div>
     <div class="profile">
@@ -23,7 +23,7 @@
         <h3>Informações do Vendedor</h3>
         <ul>
             <li><a href="#">Número de vendas e avaliações</a></li>
-            <li><a href="#">Adicionar ou remover produtos</a></li>
+            <li><a href="index.php?action=product-list&offset=0">Adicionar ou remover produtos</a></li>
         </ul>
     <?php endif ?>
 </div>

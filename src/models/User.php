@@ -41,17 +41,17 @@ class User {
         $query = "INSERT INTO {$tabela} (usr_name, usr_email, usr_password, usr_phone, usr_function)
             VALUES (:name, :email, :password, :tel, :function)";
         $stmt = $this->conn->prepare($query);
-        $senhaHash = password_hash($this->getPassword(), PASSWORD_DEFAULT);
+        $hash = password_hash($this->getPassword(), PASSWORD_DEFAULT);
 
-        $dados = [
+        $data = [
             'name' => $this->getName(),
             'email' => $this->getEmail(),
-            'password' => $senhaHash, 
+            'password' => $hash, 
             'tel' => $this->getTel(),
             'function' => $this->getFunction()
         ];
         try {
-            return $stmt->execute($dados);
+            return $stmt->execute($data);
         } catch (PDOException $e) {
             // $_POST['error'] = $e->getMessage();
             error_log('Erro ao criar registro na tabela ' . $tabela . ': ' . $e->getMessage());
@@ -70,7 +70,7 @@ class User {
             WHERE usr_id = :id";
         $stmt = $this->conn->prepare($query);
 
-        $dados = [
+        $data = [
             'name' => $this->getName(),
             'email' => $this->getEmail(),
             'tel' => $this->getTel(),
@@ -79,8 +79,8 @@ class User {
         ];
 
         try {
-            if ($stmt->execute($dados)) {
-                $_SESSION['user'] = $dados;
+            if ($stmt->execute($data)) {
+                $_SESSION['user'] = $data;
                 return true;
             } else {
                 return false;
