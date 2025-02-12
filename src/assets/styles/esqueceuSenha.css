@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+}
+
+/* Header */
+.header {
+    background-color: #276227;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.breadcrumb a {
+    text-decoration: none;
+    color: #276227;
+    font-weight: bold;
+}
+
+.breadcrumb .active {
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título */
+.title {
+    color: #276227;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Descrição */
+.description {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 320px;
+}
+
+/* Caixa do formulário */
+.form-box {
+    background-color: #c1ddb6;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;  /* Definindo uma largura fixa */
+    height: 320px; /* Definindo uma altura igual à largura */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo dentro da caixa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label */
+label {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* Input */
+input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    margin-bottom: 15px;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Botão */
+.btn-submit {
+    background-color: #276227;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+}

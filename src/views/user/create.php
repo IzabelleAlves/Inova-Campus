@@ -84,6 +84,5 @@
         </div>
         
         <button type="submit" class="btn">Cadastrar</button>
-        <?= var_dump($_POST) ?>
     </form>
 </div>

@@ -53,8 +53,42 @@ class User {
         try {
             return $stmt->execute($dados);
         } catch (PDOException $e) {
-            $_POST['error'] = $e->getMessage();
+            // $_POST['error'] = $e->getMessage();
             error_log('Erro ao criar registro na tabela ' . $tabela . ': ' . $e->getMessage());
+            return false;
+        }
+    }
+    
+    public function edit() {
+        $tabela = $this->getTabela();
+    
+        // if ($this->check() && $_SESSION['user']['email'] === $_POST['email']) {
+        //     return false;
+        // }
+
+        $query = "UPDATE {$tabela} SET usr_name = :name, usr_email = :email, usr_phone = :tel, usr_function = :function
+            WHERE usr_id = :id";
+        $stmt = $this->conn->prepare($query);
+
+        $dados = [
+            'name' => $this->getName(),
+            'email' => $this->getEmail(),
+            'tel' => $this->getTel(),
+            'function' => $this->getFunction(),
+            'id' => $this->getId()
+        ];
+
+        try {
+            if ($stmt->execute($dados)) {
+                $_SESSION['user'] = $dados;
+                return true;
+            } else {
+                return false;
+            }
+
+        } catch (PDOException $e) {
+            // $_POST['error'] = $e->getMessage();
+            error_log('Erro ao editar registro na tabela ' . $tabela . ': ' . $e->getMessage());
             return false;
         }
     }
@@ -67,11 +101,14 @@ class User {
         }
 
         if (password_verify($this->getPassword(), $user['usr_password'])) {
-            $_SESSION['id'] = $user['usr_id'];
-            $_SESSION['email'] = $user['usr_email'];
-            $_SESSION['name'] = $user['usr_name'];
-            $_SESSION['tel'] = $user['usr_phone'];
-            $_SESSION['function'] = $user['usr_function'];
+            $user = [
+                'id' => $user['usr_id'],
+                'email' => $user['usr_email'],
+                'name' => $user['usr_name'],
+                'tel' => $user['usr_phone'],
+                'function' => $user['usr_function']
+            ];
+            $_SESSION['user'] = $user;
     
             return true;
         }
