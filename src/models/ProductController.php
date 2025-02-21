@@ -23,7 +23,7 @@ class ProductController {
 
             try {
                 if ($this->product->create()) {
-                    header('Location: index.php?action=products');
+                    header('Location: index.php?action=product-list');
                     exit;
                 } else {
                     $error['query'] = 'Error:  ao cadastrar produto';
@@ -40,10 +40,28 @@ class ProductController {
         ];
     }
 
+    public function read($id) {
+        $products = $this->product->read($id);
+        return[
+            'view' => './src/views/product/read.php',
+            'title' => 'Produto',
+            'data' => $products
+        ];
+    }
+
     public function list($offset = 0) {
         $products = $this->product->list($offset);
         return[
             'view' => './src/views/product/list.php',
+            'title' => 'Meus produtos',
+            'data' => $products
+        ];
+    }
+
+    public function listAll($offset = 0) {
+        $products = $this->product->listAll($offset);
+        return[
+            'view' => './src/views/vendas.php',
             'title' => 'Meus produtos',
             'data' => $products
         ];

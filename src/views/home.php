@@ -7,5 +7,6 @@
     <div class="buttons">
         <a href="index.php?action=login" class="btn primary">Acesse sua conta</a>
         <a href="index.php?action=user-create" class="btn secondary">Cadastre-se</a>
+        <a href="index.php?action=vendas" class="btn secondary">Explore</a>
     </div>
 </div>

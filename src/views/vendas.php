@@ -36,22 +36,16 @@
 
 <section class="mais-vendidos">
     <h2>Mais vendidos da semana</h2>
+    <?php foreach($products as $p): ?>
     <div class="produto">
         <img src="./src/assets/img/empada.jpg" alt="Empada do Borges" />
         <div class="info">
-            <h3>Empada do Borges</h3>
-            <p class="preco">R$ 2,50</p>
-            <button class="btn">Comprar</button>
+            <h3><?= $p['pdt_name'] ?></h3>
+            <p class="preco"><?= $p['pdt_unit_price'] ?></p>
+            <button class="btn"><a href="index.php?action=product-read&id=<?= $p['pdt_id'] ?>">Comprar</a></button>
         </div>
     </div>
-    <div class="produto">
-        <img src="./src/assets/img/bromelia.jpg" alt="Bromélia" />
-        <div class="info">
-            <h3>Bromélia</h3>
-            <p class="preco">R$ 10,00</p>
-            <button class="btn">Comprar</button>
-        </div>
-    </div>
+    <?php endforeach ?>
 </section>
 
 <style>

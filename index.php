@@ -27,9 +27,12 @@ $result = match ($action) {
     'product-create' => $ProductController->create(),
     'product-list' => $ProductController->list($offset),
     'product-edit' => $ProductController->edit($id),
+    'product-read' => $ProductController->read($id),
     'user' => ['view' => './src/views/user/user.php', 'title' => 'Perfil'],
-    'vendas' => ['view' => './src/views/vendas.php', 'title' => 'Vendas'],
+    'vendas' => $ProductController->listAll($offset),
     'logout' => ['view' => './src/config/logout.php', 'title' => 'Saindo'],
+    'carrinho' => ['view' => './src/views/product/carrinho.php', 'title' => 'Carrinho'],
+    'adicionar_carrinho' => ['view' => './src/views/product/adicionar_carrinho.php', 'title' => 'Carrinho'],
     default => ['view' => './src/views/home.php', 'title' => 'Página Inicial']
 };
 

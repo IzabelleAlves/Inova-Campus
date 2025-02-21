@@ -59,15 +59,17 @@ class Product {
         return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
     
-
-    public function listAll() {
+    public function listAll($offset = 0) {
         $table = $this->table;
-
-        $query = "SELECT * FROM {$table} ORDER BY pdt_name ASC LIMIT 20 OFFSET 0";
+    
+        $query = "SELECT * FROM {$table} ORDER BY pdt_name ASC LIMIT 20 OFFSET :offset";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindValue(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+        
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        
         $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC) ?: false;
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
     }
 
     public function edit() {

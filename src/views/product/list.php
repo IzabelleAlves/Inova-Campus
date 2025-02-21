@@ -2,7 +2,7 @@
     <a href="#" class="back-link">Voltar</a>
     <div class="profile">
         <img src="./src/assets/img/usuario.jpg" alt="Usuário" class="perfil" />
-        <p class="user-name">Usuário</p>
+        <p class="user-name"><a href="index.php?action=user"><?= $_SESSION['user']['name'] ?></a></p>
     </div>
     <h1 class="titulo">Editar Produtos</h1>
     <p class="legenda">Meus Produtos:</p>
@@ -106,6 +106,12 @@ body {
     text-align: left;
     margin-top: -1px;
     font-weight:bold;
+}
+
+.grid-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 0;
 }
 
 .nomeP {
