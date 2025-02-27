@@ -1,32 +1,44 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<?php 
+if (!isset($_SESSION)) {
+    session_start();
+}
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Inova Campus</title>
-  <link rel="stylesheet" href="./src/styles/index.css" />
-</head>
+require_once './src/models/UserController.php';
+require_once './src/models/ProductController.php';
 
-<body>
-  <div class="container">
-    <header class="header">
-      <p>INOVA CAMPUS</p>
-    </header>
-    <main class="content">
-      <p class="principal-text">
-        <span class="highlight">Inova campus</span> é o melhor sistema de
-        E-Commerce. Empreenda, conecte e cresça no mercado digital.
-      </p>
-      <p class="subtext">Transforme sua ideia em um grande negócio.</p>
-      <div class="buttons">
-        <button class="btn primary">
-          <a href="./src/views/login.php">Acesse sua conta</a>
-        </button>
-        <button class="btn secondary">Cadastre-se</button>
-      </div>
-    </main>
-  </div>
-</body>
+$UserController = new UserController();
+$ProductController = new ProductController();
+$action = $_GET['action'] ?? '';
 
-</html>
+$id = isset($_GET['id']) && is_numeric($_GET['id']) && $_GET['id'] >= 0 
+    ? (int) $_GET['id'] 
+    : 0;
+
+$offset = isset($_GET['offset']) && is_numeric($_GET['offset']) && $_GET['offset'] >= 0 
+    ? (int) $_GET['offset'] 
+    : 0;
+
+$result = match ($action) {
+    'home' => ['view' => './src/views/home.php', 'title' => 'Página Inicial'],
+    'about' => ['view' => './src/views/about.php', 'title' => 'Sobre'],
+    'login' => $UserController->login(),
+    'user-create' => $UserController->create(),
+    'user-edit' => $UserController->edit(),
+    'product-create' => $ProductController->create(),
+    'product-list' => $ProductController->list($offset),
+    'product-edit' => $ProductController->edit($id),
+    'product-read' => $ProductController->read($id),
+    'user' => ['view' => './src/views/user/user.php', 'title' => 'Perfil'],
+    'vendas' => $ProductController->listAll($offset),
+    'logout' => ['view' => './src/config/logout.php', 'title' => 'Saindo'],
+    'carrinho' => ['view' => './src/views/product/carrinho.php', 'title' => 'Carrinho'],
+    'adicionar_carrinho' => ['view' => './src/views/product/adicionar_carrinho.php', 'title' => 'Carrinho'],
+    default => ['view' => './src/views/home.php', 'title' => 'Página Inicial']
+};
+
+$view = $result['view'];
+$title = $result['title'];
+$products = $result['data'] ?? '';
+$error = $result['error'] ?? '';
+
+require './src/layout/layout.php';

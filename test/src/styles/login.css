@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinha o conteúdo no topo */
+    background-color: #ffffff;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    display: grid;
+    gap: 30px;
+    margin-top: 20px; /* Adiciona um pequeno espaçamento do topo */
+}
+
+.header {
+    background-color: #2d7a2d;
+    color: white;
+    padding: 20px;
+    text-align: start;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.header .header-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.content {
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #2d7a2d;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.subtitulo {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    font-size: 14px;
+    margin: 5px 0;
+    text-align: start;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    border: 1px solid #267222;
+    outline: 2px solid #267222;
+}
+
+.esqueceu {
+    font-size: 12px;
+    color: gray;
+    text-align: right;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.selecionar-tipo {
+    text-align: start;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.entrar {
+    background-color: #2d7a2d;
+    color: white;
+    border: none;
+}
+
+.cadastrar {
+    background-color: white;
+    color: #2d7a2d;
+    border: 1px solid #2d7a2d;
+}
+
+@media (min-width: 400px) {
+    .container {
+        max-width: 400px;
+    }
+}
