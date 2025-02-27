@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    text-align: center;
+}
+
+.top-bar {
+    background-color: #2e7d32;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 15px;
+}
+.nav-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    padding: 10px;
+}
+
+.back-link {
+    display: block;  
+    text-align: left; 
+    margin: 15px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    padding-left: -10px; 
+}
+
+.logout-btn {
+    margin: 0 15px;
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 1px solid red;
+    color: red;
+    background: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    position: relative;
+}
+.profile img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; 
+    border: 3px solid #ddd; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.avatar {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+}
+
+.edit-icon {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.user-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.user-category {
+    font-size: 14px;
+    color: #666;
+}
+
+h3 {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+.info-box {
+    width: 80%;
+    max-width: 350px;
+    margin: auto;
+    text-align: left;
+    font-size: 14px;
+}
+
+hr {
+    width: 80%;
+    border: 0.5px solid #ccc;
+    margin: 20px auto;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-left: -100px; 
+    margin-top: 50px;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 14px;
+}
