@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inova Campus - Vendedor</title>
+    <link rel="stylesheet" href="../styles/editarProdutos.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  />
+</head>
+<body>
+    <div class="header">INOVA CAMPUS</div>
+    <main>
+      <a href="../views/verProdutos.html" class="back-link">Voltar</a>
+  </main>
+<div class="profile">
+    <img src="usuario.jpg" alt="Usuário" class="perfil">
+    <p class="user-name">Usuário</p>
+</div>
+<h1 class="titulo">Meus Produtos</h1>
+<p class="legenda">Você Selecionou:</p>
+<div class="produtos">
+  <img src="usuario.jpg" alt="Foto do produto" class="produto">
+  <p class="preço">R$2,50</p>
+  <p class="nomeP">Empada do Borges</p>
+</div>
+<div class="formulario">
+  <form>
+    <label for="email">Nome do Produto:</label>
+    <input type="name" id="nome" placeholder="Digite aqui ..." required>
+
+    <label for="senha">Preço:</label>
+    <input type="number" id="preço" placeholder="Digite aqui ..." required>
+
+    <label for="senha">Quantidade:</label>
+    <input type="number" id="quantidade" placeholder="Digite aqui ..." required>
+  </form>
+</div>
+<div class="bnt-container">
+  <button type="button" class="btn cadastrar">Apagar Produto</button>
+<a href="../views/confiAlterProdut.html">
+<button type="submit" class="btn entrar">Salvar Informações</button>
+</a>
+</div>
+</body>

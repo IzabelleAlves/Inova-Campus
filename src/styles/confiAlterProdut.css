@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body {
+    
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.header {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.titulo {
+    font-size: 20px;
+    margin-top: 80px;
+}
+
+.produtos {
+    margin-top: 40px;
+    margin-left: 80px;
+    width: 200px; 
+    background: rgb(223, 222, 222);
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.produto {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; 
+}
+
+.preço {
+    font-size: 18px;
+    text-align: left;
+    margin-top: -1px;
+    font-weight:bold;
+}
+
+.nomeP {
+    font-size: 16px;
+    margin-top: -20px;
+    text-align: left;
+}
+
+.btn {
+    padding: 12px;
+    width: 40%;
+    font-size: 13px;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+
+.entrar {
+    background-color: #2d7a2d;
+    color: white;
+    border: none;
+}
+
+
+.cadastrar {
+    background-color: white;
+    color: red;
+    border: 1px solid red;
+}
